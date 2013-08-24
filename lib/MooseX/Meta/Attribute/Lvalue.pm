@@ -1,47 +1,16 @@
 package MooseX::Meta::Attribute::Lvalue;
-
 our $VERSION   = '0.05';
-our $AUTHORITY = 'cpan:CTBROWN';
-
+our $AUTHORITY = 'cpan:TOBYINK';
 use Moose::Role;
-  
-# This is a dummy version to support after.
-# It gets overwritten if the major class has 
-# a BUILD method
-sub BUILD { }
-
-after BUILD => sub { 
-	$_[0]->_install_lvalue_writer;
-};
-
-# INSTALLS a _lvalue_writer for the attribute all lvalue attributes
-# This is done after the build statement
-sub _install_lvalue_writer
-{
-	my ( $self, @args ) = @_;
-	my %attributes = %{ $self->meta->get_attribute_map };
-	
-	while ( my ($name, $attribute) = each %attributes)
-	{
-		if (
-			$attribute->does('MooseX::Meta::Attribute::Trait::Lvalue')
-			and $attribute->_is_metadata eq 'rw'
-		) {
-			$self->meta->add_method( 
-				$name, 
-				sub :lvalue { $_[0]->{ $name } },
-			);
-		}
-	}
-}
 
 {
 	package MooseX::Meta::Attribute::Trait::Lvalue;
 	use Moose::Role;
-	has 'lvalue' => (
-		is        => 'rw' ,
-		isa       => 'Bool' ,
-		predicate => 'has_lvalue' ,
+	has lvalue => (
+		is        => 'rw',
+		isa       => 'Bool',
+		predicate => 'has_lvalue',
+		trigger   => sub { require Carp; Carp::carp('setting lvalue=>1 on the attribute is deprecated') },
 	);
 }
 
