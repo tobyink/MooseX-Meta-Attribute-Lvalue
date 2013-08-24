@@ -55,24 +55,20 @@ MooseX::Meta::Attribute::Lvalue - lvalue attributes for Moose
 
 =head1 DESCRIPTION
 
-WARNING: This module provides syntactic sugar at the expense of some 
-Moose's encapsulation.  The Moose framework does not support type 
-checking of Lvalue attributes.  You should only use this role when the 
-convenience of the Lvalue attributes outweighs the need to type 
-checking.
-
-This package provides a Moose meta attribute via a role/trait that 
-provides Lvalue accessors to your Moose attributes.  Which means that 
-instead of writing:
+This package provides a Moose attribute trait that provides Lvalue accessors.
+Which means that instead of writing:
 
    $thing->name("Foo");
 
-You can use the more functional and natural appearing:
+You can use the more natural looking:
 
    $thing->name = "Foo";
 
 For details of Lvalue implementation in Perl, please see: 
 L<http://perldoc.perl.org/perlsub.html#Lvalue-subroutines>
+
+Type constraints and coercions still work for lvalue attributes. Triggers
+still fire. Everything should just work. (Unless it doesn't.)
 
 =head1 BUGS
 
