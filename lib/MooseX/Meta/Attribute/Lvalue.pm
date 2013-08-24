@@ -74,6 +74,8 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 MooseX::Meta::Attribute::Lvalue - lvalue attributes for Moose
@@ -118,6 +120,11 @@ still fire. Everything should just work. (Unless it doesn't.)
 Please report any bugs to
 L<http://rt.cpan.org/Dist/Display.html?Queue=MooseX-Meta-Attribute-Lvalue>.
 
+=head1 SEE ALSO
+
+L<MooX::LvalueAttribute>,
+L<Object::Tiny::Lvalue>.
+
 =head1 AUTHOR
 
 Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
@@ -125,12 +132,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 Based on work by
 Christopher Brown, C<< <cbrown at opendatagroup.com> >>
 
-=head1 SEE ALSO
-
-L<MooX::LvalueAttribute>,
-L<Object::Tiny::Lvalue>.
-
-=head1 COPYRIGHT & LICENCE
+=head1 COPYRIGHT AND LICENCE
 
 This software is copyright (c) 2013 by Toby Inkster;
 2008 by Christopher Brown.

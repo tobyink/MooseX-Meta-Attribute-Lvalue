@@ -4,11 +4,11 @@
 
 `MooseX-Meta-Attribute-Lvalue`
 	:runtime-requirement    [ :on "Moose 2.0000"^^:CpanId ];
-	:runtime-recommendation [ :on "Variable::Magic"^^:CpanId ];
+	:runtime-requirement    [ :on "Variable::Magic"^^:CpanId ];
+	:runtime-requirement    [ :on "Hash::Util::FieldHash::Compat"^^CpanId ];
 	:test-requirement       [ :on "Test::More 0.96"^^:CpanId ];
 	:test-requirement       [ :on "Test::Fatal"^^:CpanId ];
 	:test-requirement       [ :on "Test::Requires"^^:CpanId ];
 	:develop-recommendation [ :on "Dist::Inkt 0.001"^^:CpanId ];
-	:develop-requirement    [ :on "Variable::Magic"^^:CpanId ];
 	.
 

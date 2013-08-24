@@ -1,5 +1,27 @@
-#!perl 
+=pod
 
+=encoding utf-8
+
+=head1 PURPOSE
+
+Tests kept from the original version of L<MooseX::Meta::Attribute::Lvalue>
+to ensure backwards compatibility.
+
+=head1 AUTHOR
+
+Christopher Brown, C<< <cbrown at opendatagroup.com> >>
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2008 by Christopher Brown.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
+use strict;
+use warnings;
 use Test::More tests => 7;
 
 BEGIN {
