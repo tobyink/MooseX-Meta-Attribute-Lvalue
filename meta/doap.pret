@@ -1,0 +1,21 @@
+# This file contains general metadata about the project.
+
+@prefix : <http://usefulinc.com/ns/doap#>.
+
+`MooseX-Meta-Attribute-Lvalue`
+	:programming-language "Perl" ;
+	:shortdesc            "lvalue attributes for Moose";
+	:homepage             <https://metacpan.org/release/MooseX-Meta-Attribute-Lvalue>;
+	:download-page        <https://metacpan.org/release/MooseX-Meta-Attribute-Lvalue>;
+	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=MooseX-Meta-Attribute-Lvalue>;
+	:repository           [ a :GitRepository; :browse <https://github.com/tobyink/p5-moosex-meta-attribute-lvalue> ];
+	:created              2013-08-24;
+	:license              <http://dev.perl.org/licenses/>;
+	:maintainer           cpan:TOBYINK;
+	:maintainer           cpan:CTBROWN;
+	:developer            cpan:TOBYINK;
+	:developer            cpan:CTBROWN.
+
+<http://dev.perl.org/licenses/>
+	dc:title  "the same terms as the perl 5 programming language system itself".
+
