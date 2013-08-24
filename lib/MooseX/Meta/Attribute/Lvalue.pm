@@ -6,6 +6,13 @@
 }
 
 {
+	package Moose::Meta::Attribute::Custom::Trait::Lvalue;
+	our $VERSION   = '0.05';
+	our $AUTHORITY = 'cpan:TOBYINK';
+	sub register_implementation { 'MooseX::Meta::Attribute::Trait::Lvalue' }
+}
+
+{
 	package MooseX::Meta::Attribute::Trait::Lvalue;
 	our $VERSION   = '0.05';
 	our $AUTHORITY = 'cpan:TOBYINK';
@@ -16,13 +23,49 @@
 		predicate => 'has_lvalue',
 		trigger   => sub { require Carp; Carp::carp('setting lvalue=>1 on the attribute is deprecated') },
 	);
+	around accessor_metaclass => sub
+	{
+		my $next = shift;
+		my $self = shift;
+		my $metaclass = $self->$next(@_);
+		return Moose::Util::with_traits($metaclass, 'MooseX::Meta::Accessor::Trait::Lvalue');
+	};
 }
 
 {
-	package Moose::Meta::Attribute::Custom::Trait::Lvalue;
+	package MooseX::Meta::Accessor::Trait::Lvalue;
 	our $VERSION   = '0.05';
 	our $AUTHORITY = 'cpan:TOBYINK';
-	sub register_implementation { 'MooseX::Meta::Attribute::Trait::Lvalue' }
+	use Moose::Role;
+	
+	use Variable::Magic ();
+	use Hash::Util::FieldHash::Compat ();
+	
+	Hash::Util::FieldHash::Compat::fieldhash(our %LVALUES);
+	
+	override is_inline => sub { 0 };
+	override _generate_accessor_method => sub
+	{
+		my $self = shift;
+		my $attr = $self->associated_attribute;
+		my $attr_name = $attr->name;
+		
+		return sub :lvalue {
+			my $instance = shift;
+			
+			unless (exists $LVALUES{$instance}{$attr_name})
+			{
+				my $wiz = Variable::Magic::wizard(
+					set => sub { $attr->set_value($instance, ${$_[0]}) },
+					get => sub { ${$_[0]} = $attr->get_value($instance) },
+				);
+				Variable::Magic::cast($LVALUES{$instance}{$attr_name}, $wiz);
+			}
+			
+			@_ and $attr->set_value($instance, $_[0]);
+			$LVALUES{$instance}{$attr_name};
+		};
+	};
 }
 
 1;
