@@ -43,7 +43,7 @@
 	
 	Hash::Util::FieldHash::Compat::fieldhash(our %LVALUES);
 	
-	override is_inline => sub { 0 };
+	override is_inline => sub { 0 };  ## TODO!!
 	override _generate_accessor_method => sub
 	{
 		my $self = shift;
