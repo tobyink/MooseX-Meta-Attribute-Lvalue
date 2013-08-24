@@ -74,22 +74,36 @@ You can use the more functional and natural appearing:
 For details of Lvalue implementation in Perl, please see: 
 L<http://perldoc.perl.org/perlsub.html#Lvalue-subroutines>
 
-=head1 AUTHOR
-
-Christopher Brown, C<< <cbrown at opendatagroup.com> >>
-
 =head1 BUGS
 
-Please report any bugs or feature requests to:
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Meta-Attribute-Lvalue>.
+Please report any bugs to
+L<http://rt.cpan.org/Dist/Display.html?Queue=MooseX-Meta-Attribute-Lvalue>.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2013 Toby Inkster.
+Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
-Copyright 2008 Christopher Brown.
+Based on work by
+Christopher Brown, C<< <cbrown at opendatagroup.com> >>
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+=head1 SEE ALSO
+
+L<MooX::LvalueAttribute>,
+L<Object::Tiny::Lvalue>.
+
+=head1 COPYRIGHT & LICENCE
+
+This software is copyright (c) 2013 by Toby Inkster;
+2008 by Christopher Brown.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=head1 DISCLAIMER OF WARRANTIES
+
+THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 =cut
+
