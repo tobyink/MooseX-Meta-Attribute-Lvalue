@@ -1,10 +1,14 @@
-package MooseX::Meta::Attribute::Lvalue;
-our $VERSION   = '0.05';
-our $AUTHORITY = 'cpan:TOBYINK';
-use Moose::Role;
+{
+	package MooseX::Meta::Attribute::Lvalue;
+	our $VERSION   = '0.05';
+	our $AUTHORITY = 'cpan:TOBYINK';
+	use Moose::Role;
+}
 
 {
 	package MooseX::Meta::Attribute::Trait::Lvalue;
+	our $VERSION   = '0.05';
+	our $AUTHORITY = 'cpan:TOBYINK';
 	use Moose::Role;
 	has lvalue => (
 		is        => 'rw',
@@ -16,6 +20,8 @@ use Moose::Role;
 
 {
 	package Moose::Meta::Attribute::Custom::Trait::Lvalue;
+	our $VERSION   = '0.05';
+	our $AUTHORITY = 'cpan:TOBYINK';
 	sub register_implementation { 'MooseX::Meta::Attribute::Trait::Lvalue' }
 }
 
