@@ -39,3 +39,6 @@
 		];
 	].
 
+`MooseX-LvalueAttribute 0.900 cpan:TOBYINK`
+	issued  2013-08-25;
+	label   "A fork/replacement for MooseX-Meta-Attribute-Lvalue".

@@ -1,6 +1,6 @@
 package MooseX::LvalueAttribute;
 
-our $VERSION   = '0.05';
+our $VERSION   = '0.900';
 our $AUTHORITY = 'cpan:TOBYINK';
 
 use MooseX::LvalueAttribute::Trait::Attribute ();
@@ -9,14 +9,14 @@ my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
 
 {
 	package Moose::Meta::Attribute::Custom::Trait::Lvalue;
-	our $VERSION   = '0.05';
+	our $VERSION   = '0.900';
 	our $AUTHORITY = 'cpan:TOBYINK';
 	sub register_implementation { $implementation }
 }
 
 {
 	package Moose::Meta::Attribute::Custom::Trait::lvalue;
-	our $VERSION   = '0.05';
+	our $VERSION   = '0.900';
 	our $AUTHORITY = 'cpan:TOBYINK';
 	sub register_implementation { $implementation }
 }

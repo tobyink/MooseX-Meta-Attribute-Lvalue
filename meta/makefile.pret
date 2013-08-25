@@ -2,7 +2,7 @@
 
 @prefix : <http://ontologi.es/doap-deps#>.
 
-`MooseX-Meta-Attribute-Lvalue`
+`MooseX-LvalueAttribute`
 	:runtime-requirement    [ :on "Moose 2.0000"^^:CpanId ];
 	:runtime-requirement    [ :on "Variable::Magic"^^:CpanId ];
 	:runtime-requirement    [ :on "Hash::Util::FieldHash::Compat"^^CpanId ];
