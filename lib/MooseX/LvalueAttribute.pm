@@ -3,8 +3,6 @@ package MooseX::LvalueAttribute;
 our $VERSION   = '0.900';
 our $AUTHORITY = 'cpan:TOBYINK';
 
-use MooseX::LvalueAttribute::Trait::Attribute ();
-
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
 
 {
@@ -21,7 +19,6 @@ my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
 	sub register_implementation { $implementation }
 }
 
-
 1;
 
 __END__
@@ -37,9 +34,9 @@ MooseX::LvalueAttribute - lvalue attributes for Moose
 =head1 SYNOPSIS
 
    package MyThing;
-	
+   
    use Moose;
-	use MooseX::LvalueAttribute;
+   use MooseX::LvalueAttribute;
    
    has name => (
       traits      => ['Lvalue'],
@@ -48,11 +45,22 @@ MooseX::LvalueAttribute - lvalue attributes for Moose
       required    => 1,
    );
    
+   has size => (
+      traits      => ['Lvalue'],
+      is          => 'rw',
+      isa         => 'Int',
+      default     => 0,
+   );
+   
    package main;
    
    my $thing = MyThing->new(name => 'Foo');
+   
    $thing->name = "Bar";
    print $thing->name;   # Bar
+   
+   $thing->size++;
+   print $thing->size;   # 1
 
 =head1 DESCRIPTION
 
