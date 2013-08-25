@@ -40,6 +40,7 @@
 	
 	use Variable::Magic ();
 	use Hash::Util::FieldHash::Compat ();
+	use Scalar::Util ();
 	
 	Hash::Util::FieldHash::Compat::fieldhash(our %LVALUES);
 	
@@ -49,9 +50,11 @@
 		my $self = shift;
 		my $attr = $self->associated_attribute;
 		my $attr_name = $attr->name;
+		Scalar::Util::weaken($attr);
 		
 		return sub :lvalue {
 			my $instance = shift;
+			Scalar::Util::weaken($instance);
 			
 			unless (exists $LVALUES{$instance}{$attr_name})
 			{
