@@ -44,10 +44,14 @@
 	
 	Hash::Util::FieldHash::Compat::fieldhash(our %LVALUES);
 	
-	override is_inline => sub { 0 };  ## TODO!!
 	override _generate_accessor_method => sub
 	{
 		my $self = shift;
+
+		## DOESN'T WORK
+		return $self->_generate_accessor_method_inline(@_)
+			if 0 && $self->_instance_is_inlinable;
+		
 		my $attr = $self->associated_attribute;
 		my $attr_name = $attr->name;
 		Scalar::Util::weaken($attr);
@@ -69,6 +73,34 @@
 			$LVALUES{$instance}{$attr_name};
 		};
 	};
+	
+#	override _generate_accessor_method_inline => sub
+#	{
+#		my $self = shift;
+#		my $attr = $self->associated_attribute;
+#		my $attr_name = $attr->name;
+#		
+#		my $SET = join '', $attr->_inline_set_value('$instance', '${$_[0]}');
+#		my $GET = join '', $attr->_inline_get_value('$instance');
+#		$GET =~ s/return//;
+#		
+#		$self->_compile_code([
+#			'sub :lvalue {',
+#				'my $self = shift;',
+#				'unless (exists $MooseX::Meta::Accessor::Trait::Lvalue::LVALUES{$self}{q/'.$attr_name.'/}) {',
+#					'my $instance = $self;',
+#					#'Scalar::Util::weaken($instance = $self);',
+#					'my $wiz = Variable::Magic::wizard(',
+#						'set => sub {'.$SET.'},',
+#						'get => sub {${$_[0]} = do {'.$GET.'};$_[0]},',
+#					');',
+#					'Variable::Magic::cast($MooseX::Meta::Accessor::Trait::Lvalue::LVALUES{$self}{q/'.$attr_name.'/}, $wiz);',
+#				'}',
+#				'@_ and do {', $attr->_inline_set_value('$self', '$_[0]'), '};',
+#				'$MooseX::Meta::Accessor::Trait::Lvalue::LVALUES{$self}{q/'.$attr_name.'/};',
+#			'}',
+#		]);
+#	};	
 }
 
 1;
