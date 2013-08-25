@@ -5,7 +5,7 @@
 `MooseX-LvalueAttribute`
 	:runtime-requirement    [ :on "Moose 2.0000"^^:CpanId ];
 	:runtime-requirement    [ :on "Variable::Magic"^^:CpanId ];
-	:runtime-requirement    [ :on "Hash::Util::FieldHash::Compat"^^CpanId ];
+	:runtime-requirement    [ :on "Hash::Util::FieldHash::Compat"^^:CpanId ];
 	:test-requirement       [ :on "Test::More 0.96"^^:CpanId ];
 	:test-requirement       [ :on "Test::Fatal"^^:CpanId ];
 	:test-requirement       [ :on "Test::Requires"^^:CpanId ];

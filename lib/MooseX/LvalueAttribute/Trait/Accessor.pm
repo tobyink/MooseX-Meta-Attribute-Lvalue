@@ -14,7 +14,7 @@ Hash::Util::FieldHash::Compat::fieldhash(our %LVALUES);
 override _generate_accessor_method => sub
 {
 	my $self = shift;
-
+	
 	my $attr = $self->associated_attribute;
 	my $attr_name = $attr->name;
 	Scalar::Util::weaken($attr);
@@ -35,6 +35,6 @@ override _generate_accessor_method => sub
 		@_ and $attr->set_value($instance, $_[0]);
 		$LVALUES{$instance}{$attr_name};
 	};
-};	
+};
 
 1;
