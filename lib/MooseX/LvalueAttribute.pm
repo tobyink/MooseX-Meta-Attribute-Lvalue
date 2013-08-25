@@ -82,7 +82,7 @@ Triggers still fire. Everything should just work. (Unless it doesn't.)
 =head1 BUGS
 
 Please report any bugs to
-L<http://rt.cpan.org/Dist/Display.html?Queue=MooseX-Meta-Attribute-Lvalue>.
+L<http://rt.cpan.org/Dist/Display.html?Queue=MooseX-LvalueAttribute>.
 
 =head1 SEE ALSO
 
