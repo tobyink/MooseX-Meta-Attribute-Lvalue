@@ -1,5 +1,8 @@
 package MooseX::LvalueAttribute;
 
+our $VERSION   = '0.05';
+our $AUTHORITY = 'cpan:TOBYINK';
+
 use MooseX::LvalueAttribute::Trait::Attribute ();
 
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
