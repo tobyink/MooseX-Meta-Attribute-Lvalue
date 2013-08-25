@@ -60,7 +60,7 @@
 			{
 				my $wiz = Variable::Magic::wizard(
 					set => sub { $attr->set_value($instance, ${$_[0]}) },
-					get => sub { ${$_[0]} = $attr->get_value($instance) },
+					get => sub { ${$_[0]} = $attr->get_value($instance); $_[0] },
 				);
 				Variable::Magic::cast($LVALUES{$instance}{$attr_name}, $wiz);
 			}
