@@ -1,10 +1,10 @@
 package MooseX::LvalueAttribute;
 
+use strict;
+use warnings;
+
 our $VERSION   = '0.900_01';
 our $AUTHORITY = 'cpan:TOBYINK';
-
-our $INLINE;
-$INLINE = 1 unless defined $INLINE;
 
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
 my $constant       = sub () { $implementation };
@@ -12,6 +12,9 @@ my $constant       = sub () { $implementation };
 use Sub::Exporter -setup => {
 	exports => [ 'lvalue' => sub { $constant } ],
 };
+
+our $INLINE;
+$INLINE = 1 unless defined $INLINE;
 
 {
 	package Moose::Meta::Attribute::Custom::Trait::Lvalue;
