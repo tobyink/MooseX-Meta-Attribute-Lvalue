@@ -6,6 +6,8 @@
 
 Check that type constraints are checked when using lvalue accessors.
 
+Also tests that MooseX::LvalueAttribute can export its constant.
+
 =head1 AUTHOR
 
 Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
@@ -27,8 +29,8 @@ use Test::Fatal;
 {
 	package Goose;
 	use Moose;
-	use MooseX::Meta::Attribute::Lvalue;
-	has name => (traits => ['Lvalue'], is => 'rw', isa => 'Str');
+	use MooseX::LvalueAttribute lvalue => { -as => 'lv' };
+	has name => (traits => [ lv ], is => 'rw', isa => 'Str');
 }
 
 my $mother = Goose->new(name => 'Mother Goose');

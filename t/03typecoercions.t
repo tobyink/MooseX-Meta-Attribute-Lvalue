@@ -36,7 +36,7 @@ use Test::Fatal;
 	coerce 'Count',
 		from 'Num', via { int($_) };
 	
-	use MooseX::Meta::Attribute::Lvalue;
+	use MooseX::LvalueAttribute;
 	has eggs => (traits => ['Lvalue'], is => 'rw', isa => 'Count', coerce => 1);
 }
 

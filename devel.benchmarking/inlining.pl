@@ -12,7 +12,7 @@ use Benchmark ':all';
 	has eggs => (
 		traits  => [ lvalue ],
 		is      => 'rw',
-		isa     => 'Int',
+#		isa     => 'Int',
 		default => 0,
 	);
 }
@@ -25,7 +25,7 @@ use Benchmark ':all';
 	has eggs => (
 		traits  => [ lvalue ],
 		is      => 'rw',
-		isa     => 'Int',
+#		isa     => 'Int',
 		default => 0,
 	);
 }

@@ -19,11 +19,14 @@ override _generate_accessor_method => sub
 	my $attr_name = $attr->name;
 	Scalar::Util::weaken($attr);
 	
+	# Some type constraints assign the value to a temporary variable
+	# which results in very unusual error messages.
+	#
 	my ($SET, $GET);
-	if ($MooseX::LvalueAttribute::INLINE)
+	if ($MooseX::LvalueAttribute::INLINE and not $attr->type_constraint)
 	{
-		eval { $SET = eval sprintf 'sub{%s}', $attr->_inline_set_value('$_[0]', '$_[1]') };
-		eval { $GET = eval sprintf 'sub{%s}', $attr->_inline_get_value('$_[0]') };
+		eval { $SET = $self->_generate_writer_method_inline };
+		eval { $GET = $self->_generate_reader_method_inline };
 	}
 	
 	return sub :lvalue {
