@@ -42,3 +42,11 @@
 `MooseX-LvalueAttribute 0.900_01 cpan:TOBYINK`
 	issued  2013-08-25;
 	label   "Preview for a fork/replacement for MooseX-Meta-Attribute-Lvalue".
+
+`MooseX-LvalueAttribute 0.900_02 cpan:TOBYINK`
+	issued  2013-08-26;
+	changeset [
+		item "Change bug tracker link."^^Documentation;
+		item "Export an `lvalue` constant."^^Addition;
+		item "Use inlining where possible to speed up lvalue accessors. Getting a reasonable speed."^^Change;
+	].
