@@ -19,6 +19,13 @@ override _generate_accessor_method => sub
 	my $attr_name = $attr->name;
 	Scalar::Util::weaken($attr);
 	
+	my ($SET, $GET);
+	if ($MooseX::LvalueAttribute::INLINE)
+	{
+		eval { $SET = eval sprintf 'sub{%s}', $attr->_inline_set_value('$_[0]', '$_[1]') };
+		eval { $GET = eval sprintf 'sub{%s}', $attr->_inline_get_value('$_[0]') };
+	}
+	
 	return sub :lvalue {
 		my $instance = shift;
 		Scalar::Util::weaken($instance);
@@ -26,9 +33,14 @@ override _generate_accessor_method => sub
 		unless (exists $LVALUES{$instance}{$attr_name})
 		{
 			my $wiz = Variable::Magic::wizard(
-				set => sub { $attr->set_value($instance, ${$_[0]}) },
-				get => sub { ${$_[0]} = $attr->get_value($instance); $_[0] },
+				set => $SET
+					? sub { @_ = ($instance, ${$_[0]}); goto $SET }
+					: sub { $attr->set_value($instance, ${$_[0]}) },
+				get => $GET
+					? sub { ${$_[0]} = $GET->($instance); $_[0] }
+					: sub { ${$_[0]} = $attr->get_value($instance); $_[0] },
 			);
+			
 			Variable::Magic::cast($LVALUES{$instance}{$attr_name}, $wiz);
 		}
 		

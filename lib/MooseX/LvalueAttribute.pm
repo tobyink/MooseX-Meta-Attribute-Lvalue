@@ -3,6 +3,9 @@ package MooseX::LvalueAttribute;
 our $VERSION   = '0.900_01';
 our $AUTHORITY = 'cpan:TOBYINK';
 
+our $INLINE;
+$INLINE = 1 unless defined $INLINE;
+
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
 my $constant       = sub () { $implementation };
 
