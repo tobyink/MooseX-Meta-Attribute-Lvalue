@@ -3,7 +3,7 @@ package MooseX::LvalueAttribute;
 use strict;
 use warnings;
 
-our $VERSION   = '0.900_02';
+our $VERSION   = '0.980';
 our $AUTHORITY = 'cpan:TOBYINK';
 
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
@@ -18,14 +18,14 @@ $INLINE = 1 unless defined $INLINE;
 
 {
 	package Moose::Meta::Attribute::Custom::Trait::Lvalue;
-	our $VERSION   = '0.900_02';
+	our $VERSION   = '0.980';
 	our $AUTHORITY = 'cpan:TOBYINK';
 	sub register_implementation { $implementation }
 }
 
 {
 	package Moose::Meta::Attribute::Custom::Trait::lvalue;
-	our $VERSION   = '0.900_02';
+	our $VERSION   = '0.980';
 	our $AUTHORITY = 'cpan:TOBYINK';
 	sub register_implementation { $implementation }
 }

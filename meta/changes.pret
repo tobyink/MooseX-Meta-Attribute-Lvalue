@@ -50,3 +50,7 @@
 		item "Export an `lvalue` constant."^^Addition;
 		item "Use inlining where possible to speed up lvalue accessors. Getting a reasonable speed."^^Change;
 	].
+
+`MooseX-LvalueAttribute 0.980 cpan:TOBYINK`
+	issued  2013-08-27;
+	comment "No functional changes".

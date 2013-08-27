@@ -1,6 +1,6 @@
 package MooseX::LvalueAttribute::Trait::Attribute;
 
-our $VERSION   = '0.900_02';
+our $VERSION   = '0.980';
 our $AUTHORITY = 'cpan:TOBYINK';
 
 use Moose::Role;
