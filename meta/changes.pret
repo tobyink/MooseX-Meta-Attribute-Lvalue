@@ -55,8 +55,8 @@
 	issued  2013-08-27;
 	comment "No functional changes".
 
-`MooseX-LvalueAttribute 0.980 cpan:TOBYINK`
-	issued  2013-08-27;
+`MooseX-LvalueAttribute 0.981 cpan:TOBYINK`
+	issued  2014-10-04;
 	changeset [
 		item "Use Exporter::Tiny instead of Sub::Exporter."^^Change;
 		item "Explicitly depend on Perl 5.8."^^Packaging;
