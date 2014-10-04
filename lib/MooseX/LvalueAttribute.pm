@@ -1,7 +1,8 @@
-package MooseX::LvalueAttribute;
-
+use 5.008;
 use strict;
 use warnings;
+
+package MooseX::LvalueAttribute;
 
 our $VERSION   = '0.980';
 our $AUTHORITY = 'cpan:TOBYINK';

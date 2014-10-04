@@ -3,6 +3,7 @@
 @prefix : <http://ontologi.es/doap-deps#>.
 
 `MooseX-LvalueAttribute`
+	:runtime-requirement    [ :on "perl 5.008"^^:CpanId ];
 	:runtime-requirement    [ :on "Moose 2.0000"^^:CpanId ];
 	:runtime-requirement    [ :on "Variable::Magic"^^:CpanId ];
 	:runtime-requirement    [ :on "Hash::Util::FieldHash::Compat"^^:CpanId ];
