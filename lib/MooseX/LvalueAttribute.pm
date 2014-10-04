@@ -10,7 +10,7 @@ our $AUTHORITY = 'cpan:TOBYINK';
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
 
 use Exporter::Shiny qw( lvalue );
-my $_cached; 
+my $_cached;
 sub _generate_lvalue { $_cached ||= sub () { $implementation } }
 
 our $INLINE;
