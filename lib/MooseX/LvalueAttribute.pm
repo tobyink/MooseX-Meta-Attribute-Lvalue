@@ -8,11 +8,10 @@ our $VERSION   = '0.980';
 our $AUTHORITY = 'cpan:TOBYINK';
 
 my $implementation = 'MooseX::LvalueAttribute::Trait::Attribute';
-my $constant       = sub () { $implementation };
 
-use Sub::Exporter -setup => {
-	exports => [ 'lvalue' => sub { $constant } ],
-};
+use Exporter::Shiny qw( lvalue );
+my $_cached; 
+sub _generate_lvalue { $_cached ||= sub () { $implementation } }
 
 our $INLINE;
 $INLINE = 1 unless defined $INLINE;
@@ -125,7 +124,7 @@ Christopher Brown, C<< <cbrown at opendatagroup.com> >>
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2013 by Toby Inkster;
+This software is copyright (c) 2013-2014 by Toby Inkster;
 2008 by Christopher Brown.
 
 This is free software; you can redistribute it and/or modify it under
