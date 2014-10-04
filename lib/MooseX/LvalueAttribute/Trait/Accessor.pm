@@ -1,6 +1,6 @@
 package MooseX::LvalueAttribute::Trait::Accessor;
 
-our $VERSION   = '0.980';
+our $VERSION   = '0.981';
 our $AUTHORITY = 'cpan:TOBYINK';
 
 use Moose::Role;
@@ -92,7 +92,7 @@ Christopher Brown, C<< <cbrown at opendatagroup.com> >>
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2013 by Toby Inkster;
+This software is copyright (c) 2013-2014 by Toby Inkster;
 2008 by Christopher Brown.
 
 This is free software; you can redistribute it and/or modify it under
